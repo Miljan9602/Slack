@@ -58,7 +58,7 @@ class AttachmentAction
      *
      * @var ActionConfirmation
      */
-    protected $confirm;
+    protected $confirm = null;
 
     /**
      * Instantiate a new AttachmentAction.
