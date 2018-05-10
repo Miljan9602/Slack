@@ -74,6 +74,13 @@ class Attachment
      * @var string
      */
     protected $author_icon;
+    
+    /**
+     * Callback ID
+     *
+     * @var string
+     */
+    protected $callback_id;
 
     /**
      * The color to use for the attachment.
@@ -149,6 +156,7 @@ class Attachment
         'author_link' => 'author_link',
         'author_icon' => 'author_icon',
         'actions'     => 'actions',
+        'callback_id' => 'callback_id',
     ];
 
     /**
@@ -647,6 +655,29 @@ class Attachment
 
         return $this;
     }
+    
+    /**
+     * Get the value of the field.
+     *
+     * @return string
+     */
+    public function getCallbackId()
+    {
+        return $this->value;
+    }
+
+    /**
+     * Set the value of the field.
+     *
+     * @param string $callbackId
+     * @return $this
+     */
+    public function setCallbackId($callback_id)
+    {
+        $this->callback_id = $callback_id;
+
+        return $this;
+    }
 
     /**
      * Get the collection of actions (buttons) to include in the attachment.
@@ -725,6 +756,7 @@ class Attachment
             'author_name' => $this->getAuthorName(),
             'author_link' => $this->getAuthorLink(),
             'author_icon' => $this->getAuthorIcon(),
+            'callback_id' => $this->getCallbackId(),
         ];
 
         $data['fields'] = $this->getFieldsAsArrays();
