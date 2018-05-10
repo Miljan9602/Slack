@@ -663,7 +663,7 @@ class Attachment
      */
     public function getCallbackId()
     {
-        return $this->value;
+        return $this->callback_id;
     }
 
     /**
