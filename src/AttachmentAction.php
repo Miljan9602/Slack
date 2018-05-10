@@ -251,14 +251,19 @@ class AttachmentAction
     {
         $confirm = $this->getConfirm();
 
-        return [
+        $ret = [
             'name' => $this->getName(),
             'text' => $this->getText(),
             'style' => $this->getStyle(),
             'type' => $this->getType(),
             'value' => $this->getValue(),
             'url' => $this->getUrl(),
-            'confirm' => $confirm ? $confirm->toArray() : null,
         ];
+        
+        if ($confirm) {
+            $ret['confirm'] = $confirm->toArray();
+        }
+        
+        return $ret;
     }
 }
