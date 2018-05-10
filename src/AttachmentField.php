@@ -16,6 +16,13 @@ class AttachmentField
      * @var string
      */
     protected $value;
+    
+    /**
+     * Callback ID
+     *
+     * @var string
+     */
+    protected $callbackId;
 
     /**
      * Whether the value is short enough to fit side by side with
@@ -39,6 +46,10 @@ class AttachmentField
 
         if (isset($attributes['value'])) {
             $this->setValue($attributes['value']);
+        }
+        
+        if (isset($attributes['callback_id'])) {
+            $this->setCallbackId($attributes['callback_id']);
         }
 
         if (isset($attributes['short'])) {
@@ -91,6 +102,29 @@ class AttachmentField
 
         return $this;
     }
+    
+    /**
+     * Get the value of the field.
+     *
+     * @return string
+     */
+    public function getCallbackId()
+    {
+        return $this->value;
+    }
+
+    /**
+     * Set the value of the field.
+     *
+     * @param string $callbackId
+     * @return $this
+     */
+    public function setCallbackId($callbackId)
+    {
+        $this->callbackId = $callbackId;
+
+        return $this;
+    }
 
     /**
      * Get whether this field is short enough for displaying
@@ -127,6 +161,7 @@ class AttachmentField
         return [
             'title' => $this->getTitle(),
             'value' => $this->getValue(),
+            'callback_id' => $this->getCallbackId(),
             'short' => $this->getShort(),
         ];
     }
