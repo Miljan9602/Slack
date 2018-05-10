@@ -400,6 +400,18 @@ class Message
 
         return $this;
     }
+    
+    /**
+    * Set the endpoint
+    * @return 
+    */
+    public function endpoint($endpoint)
+    {
+        $this->client->setEndpoint($endpoint);
+        
+        return $this;
+    }
+    
 
     /**
      * Send the message.
